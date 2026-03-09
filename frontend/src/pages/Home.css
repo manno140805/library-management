@@ -1,0 +1,127 @@
+.home-container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+}
+
+.hero-heading {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #4a148c;
+  font-weight: bold;
+}
+
+.hero-subheading {
+  font-size: 1.5rem;
+  color: #7b1fa2;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #6a1b9a;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #7b1fa2;
+  color: white;
+  box-shadow: 0 4px 15px rgba(123, 31, 162, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: #6a1b9a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(123, 31, 162, 0.6);
+}
+
+.btn-secondary {
+  background-color: #ba68c8;
+  color: white;
+  box-shadow: 0 4px 15px rgba(186, 104, 200, 0.4);
+}
+
+.btn-secondary:hover {
+  background-color: #ab47bc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(186, 104, 200, 0.6);
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-heading {
+    font-size: 2.5rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.3rem;
+  }
+}

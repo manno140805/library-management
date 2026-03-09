@@ -1,0 +1,15 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  font-family: 'Arial', sans-serif;
+}
+
+.App * {
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 0;
+  }
+}

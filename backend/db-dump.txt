@@ -1,0 +1,37 @@
+Books Summary:
+- Data Structures and Algorithms in Java [Computer Courses]
+- Introduction to Algorithms [Computer Courses]
+- Operating System Concepts [Computer Courses]
+- Computer Networks [Computer Courses]
+- Database System Concepts [Computer Courses]
+- Software Engineering [Computer Courses]
+- Artificial Intelligence: A Modern Approach [Computer Courses]
+- Computer Organization and Design [Computer Courses]
+- Harry Potter and the Sorcerer's Stone [Fiction]
+- The Hobbit [Fiction]
+- The Hunger Games [Fiction]
+- Sherlock Holmes: The Complete Novels [Fiction]
+- The Chronicles of Narnia [Fiction]
+- Percy Jackson and the Lightning Thief [Fiction]
+- The Da Vinci Code [Fiction]
+- Think and Grow Rich [Motivational]
+- Atomic Habits [Motivational]
+- Rich Dad Poor Dad [Motivational]
+- The 7 Habits of Highly Effective People [Motivational]
+- The Power of Positive Thinking [Motivational]
+- You Can Win [Motivational]
+- Wings of Fire [Motivational]
+
+Category Counts:
+{
+  "Computer Courses": 8,
+  "Fiction": 7,
+  "Motivational": 7
+}
+
+Categories in DB:
+[
+  "Computer Courses",
+  "Fiction",
+  "Motivational"
+]
