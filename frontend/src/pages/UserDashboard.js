@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE from '../api';
 
 const UserDashboard = () => {
   const [books, setBooks] = useState([]);
@@ -12,13 +13,13 @@ const UserDashboard = () => {
   }, []);
 
   const fetchBooks = async () => {
-    const res = await axios.get('http://localhost:5000/api/books');
+    const res = await axios.get(`${API_BASE}/api/books`);
     setBooks(res.data);
   };
 
   const fetchHistory = async () => {
     const token = localStorage.getItem('token');
-    const res = await axios.get('http://localhost:5000/api/borrow/history', {
+    const res = await axios.get(`${API_BASE}/api/borrow/history`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setHistory(res.data);
@@ -33,7 +34,7 @@ const UserDashboard = () => {
     const token = localStorage.getItem('token');
     const dueDate = new Date();
     dueDate.setDate(dueDate.getDate() + 14); // 14 days
-    await axios.post('http://localhost:5000/api/borrow/issue', { bookId, dueDate: dueDate.toISOString().split('T')[0] }, {
+    await axios.post(`${API_BASE}/api/borrow/issue`, { bookId, dueDate: dueDate.toISOString().split('T')[0] }, {
       headers: { Authorization: `Bearer ${token}` }
     });
     alert('Book requested');

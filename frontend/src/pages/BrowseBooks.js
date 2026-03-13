@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 
 const BrowseBooks = () => {
   const location = useLocation();
@@ -29,7 +30,7 @@ const BrowseBooks = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/books');
+      const res = await axios.get(`${API_BASE}/api/books`);
       setBooks(res.data);
     } catch (err) {
       console.error('Error fetching books:', err);
@@ -38,7 +39,7 @@ const BrowseBooks = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/categories');
+      const res = await axios.get(`${API_BASE}/api/categories`);
       setCategories(res.data);
     } catch (err) {
       console.error('Error fetching categories:', err);

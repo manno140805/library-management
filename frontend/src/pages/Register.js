@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 import './Auth.css';
 
 const Register = () => {
@@ -55,7 +56,7 @@ const Register = () => {
     setLoading(true);
     
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+      await axios.post(`${API_BASE}/api/auth/register`, { name, email, password });
       alert('Registration successful! Please login.');
       navigate('/login');
     } catch (err) {

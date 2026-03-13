@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 import './AdminPages.css';
 
 const IssueReturn = () => {
@@ -14,7 +15,7 @@ const IssueReturn = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/books');
+      const res = await axios.get(`${API_BASE}/api/books`);
       setBooks(res.data);
     } catch(e) {
       console.error(e);
@@ -27,7 +28,7 @@ const IssueReturn = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/borrow/issue', borrowForm, {
+      await axios.post(`${API_BASE}/api/borrow/issue`, borrowForm, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Book physically issued successfully.');
@@ -43,7 +44,7 @@ const IssueReturn = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/borrow/return/${returnId}`, {}, {
+      await axios.post(`${API_BASE}/api/borrow/return/${returnId}`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Book physically returned to Library.');

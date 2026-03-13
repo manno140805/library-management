@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 import './AdminPages.css';
 
 const BookManagement = () => {
@@ -14,19 +15,19 @@ const BookManagement = () => {
   }, []);
 
   const fetchBooks = async () => {
-    const res = await axios.get('http://localhost:5000/api/books');
+    const res = await axios.get(`${API_BASE}/api/books`);
     setBooks(res.data);
   };
 
   const fetchCategories = async () => {
-    const res = await axios.get('http://localhost:5000/api/categories');
+    const res = await axios.get(`${API_BASE}/api/categories`);
     setCategories(res.data);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    await axios.post('http://localhost:5000/api/books', form, {
+    await axios.post(`${API_BASE}/api/books`, form, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchBooks();
@@ -36,7 +37,7 @@ const BookManagement = () => {
   const deleteBook = async (id) => {
     if(!window.confirm('Are you sure you want to delete this book?')) return;
     const token = localStorage.getItem('token');
-    await axios.delete(`http://localhost:5000/api/books/${id}`, {
+    await axios.delete(`${API_BASE}/api/books/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchBooks();

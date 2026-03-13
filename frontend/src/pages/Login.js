@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 import './Auth.css';
 
 const Login = () => {
@@ -22,7 +23,7 @@ const Login = () => {
     setUserLoading(true);
     
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email: userEmail, password: userPassword });
+      const res = await axios.post(`${API_BASE}/api/auth/login`, { email: userEmail, password: userPassword });
       localStorage.setItem('token', res.data.token);
       
       if (res.data.user.role === 'admin') {
@@ -46,7 +47,7 @@ const Login = () => {
     setAdminLoading(true);
     
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email: adminEmail, password: adminPassword });
+      const res = await axios.post(`${API_BASE}/api/auth/login`, { email: adminEmail, password: adminPassword });
       
       // Additional safety check to verify they are actually an admin
       if (res.data.user.role !== 'admin') {

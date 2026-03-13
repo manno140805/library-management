@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 import './AdminPages.css';
 
 const MemberManagement = () => {
@@ -14,7 +15,7 @@ const MemberManagement = () => {
   const fetchMembers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/members', {
+      const res = await axios.get(`${API_BASE}/api/members`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMembers(res.data);
@@ -27,7 +28,7 @@ const MemberManagement = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/members', form, {
+      await axios.post(`${API_BASE}/api/members`, form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchMembers();
@@ -41,7 +42,7 @@ const MemberManagement = () => {
     if(!window.confirm('Are you sure you want to completely delete this member user context?')) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/members/${id}`, {
+      await axios.delete(`${API_BASE}/api/members/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchMembers();

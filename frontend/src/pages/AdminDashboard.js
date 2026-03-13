@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../api';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -16,7 +17,7 @@ const AdminDashboard = () => {
     const fetchStats = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/reports', {
+        const res = await axios.get(`${API_BASE}/api/reports`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setStats(res.data);
